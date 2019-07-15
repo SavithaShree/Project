@@ -1,0 +1,24 @@
+<body >
+    <div style="display: flex; flex-direction: row;">
+        <div>
+            <input type="button" class="fade" value="Men" (click)="selectCategory($event)">
+            <input type="button" class="fade" value="Women" (click)="selectCategory($event)">
+            <input type="button" class="fade" value="Kids" (click)="selectCategory($event)">
+            <ul>
+                <li *ngFor="let data of selectArray">
+                    <div class="product-box">
+                        <p>{{data.Product}}</p>
+                        <p>{{data.Brand}}</p>
+                        <p><img style="height: 250px; width: 250px;" src={{data.Image}} alt=""></p>
+                        <p>Price: {{data.Price}}</p>
+                        <p>{{data.Description}} <input type="button" class="fade" (click)="newPage(data.id)"
+                                value="View more"></p>
+                        <input type="button" class="fade" (click)="clickAddToCart(data)" value="Add to cart">
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <app-cart></app-cart>
+    </div>
+</body>
